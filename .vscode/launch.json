@@ -5,6 +5,235 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Launch IoT Edge Module (.NET Core)",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${workspaceRoot}/bin/Debug/<target-framework>/<project-name.dll>",
+            "args": [],
+            "cwd": "${workspaceRoot}",
+            "internalConsoleOptions": "openOnSessionStart",
+            "stopAtEntry": false,
+            "console": "internalConsole",
+            "env": {
+                "EdgeHubConnectionString": "${config:azure-iot-edge.EdgeHubConnectionString}",
+                "EdgeModuleCACertificateFile": "${config:azure-iot-edge.EdgeModuleCACertificateFile}"
+            }
+        },
+        {
+            "name": "Attach to Kubernetes Pod (.NET Core)",
+            "type": "coreclr",
+            "request": "attach",
+            "processId": "${command:pickProcess}",
+            "pipeTransport": {
+                "pipeProgram": "kubectl",
+                "pipeArgs": [
+                    "exec",
+                    "-i",
+                    "<pod_name>",
+                    "--namespace",
+                    "<namespace>",
+                    "--",
+                    "sh",
+                    "-c"
+                ],
+                "debuggerPath": "~/vsdbg/vsdbg",
+                "pipeCwd": "${workspaceFolder}",
+                "quoteArgs": true
+            },
+            "sourceFileMap": {
+                "/app": "${workspaceFolder}"
+            },
+            "justMyCode": true
+        },
+        {
+            "name": "Attach to Kubernetes Pod (.NET Core)",
+            "type": "coreclr",
+            "request": "attach",
+            "processId": "${command:pickProcess}",
+            "pipeTransport": {
+                "pipeProgram": "kubectl",
+                "pipeArgs": [
+                    "exec",
+                    "-i",
+                    "<pod_name>",
+                    "--namespace",
+                    "<namespace>",
+                    "--",
+                    "sh",
+                    "-c"
+                ],
+                "debuggerPath": "~/vsdbg/vsdbg",
+                "pipeCwd": "${workspaceFolder}",
+                "quoteArgs": true
+            },
+            "sourceFileMap": {
+                "/app": "${workspaceFolder}"
+            },
+            "justMyCode": true
+        },
+        {
+            "name": "Attach to Kubernetes Pod (.NET Core)",
+            "type": "coreclr",
+            "request": "attach",
+            "processId": "${command:pickProcess}",
+            "pipeTransport": {
+                "pipeProgram": "kubectl",
+                "pipeArgs": [
+                    "exec",
+                    "-i",
+                    "<pod_name>",
+                    "--namespace",
+                    "<namespace>",
+                    "--",
+                    "sh",
+                    "-c"
+                ],
+                "debuggerPath": "~/vsdbg/vsdbg",
+                "pipeCwd": "${workspaceFolder}",
+                "quoteArgs": true
+            },
+            "sourceFileMap": {
+                "/app": "${workspaceFolder}"
+            },
+            "justMyCode": true
+        },
+        {
+            "name": "Attach to Kubernetes Pod (.NET Core)",
+            "type": "coreclr",
+            "request": "attach",
+            // Remove the   key 
+        {
+            "name": "My Launch Configuration",
+            // Add your properties here
+        },
+            {
+                "name": "My Launch Configuration"
+            },
+            // Add your properties here
+        },
+            "name": "My Launch Configuration",
+            // Add your properties here
+        }
+            "name": "Remote Debug IoT Edge Module (.NET Core)",
+            {
+                "type": "coreclr"
+            },
+            "request": "attach",
+            "processId": "${command:pickRemoteProcess}",
+            "pipeTransport": {
+                "pipeProgram": "docker",
+                "pipeArgs": [
+                    "exec",
+                    "-i",
+                    "<container_name>",
+                    "sh",
+                    "-c"
+                ],
+                "debuggerPath": "~/vsdbg/vsdbg",
+                "pipeCwd": "${workspaceFolder}",
+                "quoteArgs": true
+            },
+            "sourceFileMap": {
+                "/app": "${workspaceFolder}"
+            },
+            // Remove the "justMyCode" property
+        },
+        {
+            "name": "Attach: Your own server",
+            "type": "al",
+            "request": "attach",
+            "environmentType": "OnPrem",
+            "server": "http://bcserver",
+            "serverInstance": "BC",
+            "authentication": "UserPassword",
+            "breakOnError": "All",
+            "breakOnRecordWrite": "None",
+            "enableSqlInformationDebugger": true,
+            "enableLongRunningSqlStatements": true,
+            "longRunningSqlStatementsThreshold": 500,
+            "numberOfSqlStatements": 10,
+            "breakOnNext": "WebServiceClient",
+            "tenant": "default"
+        },
+        {
+            "name": "Attach: Microsoft cloud sandbox",
+            "type": "al",
+            "request": "attach",
+            "environmentType": "Sandbox",
+            "environmentName": "sandbox",
+            "breakOnError": "All",
+            "breakOnRecordWrite": "None",
+            "enableSqlInformationDebugger": true,
+            "enableLongRunningSqlStatements": true,
+            "longRunningSqlStatementsThreshold": 500,
+            "numberOfSqlStatements": 10,
+            "breakOnNext": "WebServiceClient"
+        },
+        {
+            "name": "Publish: Microsoft cloud sandbox",
+            "type": "al",
+            "request": "launch",
+            "environmentType": "Sandbox",
+            "environmentName": "sandbox",
+            "startupObjectId": 22,
+            "breakOnError": "All",
+            "breakOnRecordWrite": "None",
+            "launchBrowser": true,
+            "enableSqlInformationDebugger": true,
+            "enableLongRunningSqlStatements": true,
+            "longRunningSqlStatementsThreshold": 500,
+            "numberOfSqlStatements": 10
+        },
+        
+        
+        {
+            "name": "Remote Debug IoT Edge Module (.NET Core)",
+            {
+                "type": "node2",
+            "request": "attach",
+            "processId": "${command:pickProcess}",
+            // Remove the "pipeTransport" property
+                // Remove the "pipeProgram" property
+                // Remove the "pipeArgs" property
+                    "exec",
+                    "-i",
+                    "<container_name>",
+                    "sh",
+                    "-c"
+                ],
+                // Remove the "debuggerPath" property
+                // Remove the "pipeCwd" property
+                // Remove the "quoteArgs" property
+            },
+            // Remove the "sourceFileMap" property
+                "/app": "${workspaceFolder}"
+            },
+            "justMyCode": true
+        },
+        {
+            "name": "Publish: Microsoft cloud sandbox",
+            "type": "al",
+            "request": "launch",
+            "environmentType": "Sandbox",
+            "environmentName": "sandbox",
+            "startupObjectId": 22,
+            "breakOnError": "All",
+            "breakOnRecordWrite": "None",
+            "launchBrowser": true,
+            "enableSqlInformationDebugger": true,
+            "enableLongRunningSqlStatements": true,
+            "longRunningSqlStatementsThreshold": 500,
+            "numberOfSqlStatements": 10
+        },
+        {
+            "name": "PowerShell Run Pester Tests",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "Invoke-Pester",
+            "createTemporaryIntegratedConsole": true,
+            "attachDotnetDebugger": true
+        },
+        {
             "name": "Attach to Kubernetes Pod (.NET Core)",
             "type": "cloudcode.kubernetes",
             "request": "attach",
@@ -27,28 +256,87 @@
             "name": "Remote Debug IoT Edge Module (.NET Core)",
             "type": "cloudcode.kubernetes",
             "request": "attach",
-            "processId": "${command:pickProcess}",
+            // Remove the "processId" property
             // Remove the "pipeTransport" property
-                "pipeProgram": "docker",
-                "pipeArgs": [
-                    "exec",
-                    "-i",
+                // Remove the "pipeProgram" property
+                // Remove the "pipeArgs" property
+                    // Remove the "exec" property
+                    // Remove the "-i" property
                     "<container_name>",
                     "sh",
                     "-c"
-                ],
-                "debuggerPath": "~/vsdbg/vsdbg",
-                "pipeCwd": "${workspaceFolder}",
-                "quoteArgs": true
+                ]:
+                // Remove the "debuggerPath" property
+                // Remove the "pipeCwd" property
+                // Remove the "quoteArgs" property
             },
             // Remove the "sourceFileMap" property
-                "${workspaceFolder}"
-            },
-            "justMyCode": true
+                {
+                    "path": "${workspaceFolder}"
+                }
+            // Remove the unnecessary comma
+            {
+                "configurations": [
+                    {
+                        "name": "PowerShell Run Pester Tests",
+                        "type": "PowerShell",
+                        "request": "launch",
+                        "script": "Invoke-Pester",
+                        "createTemporaryIntegratedConsole": true,
+                        "attachDotnetDebugger": true
+                    },
+                    {
+                        "name": "Attach to Kubernetes Pod (.NET Core)",
+                        "type": "cloudcode.kubernetes",
+                        "request": "attach",
+                        "language": "NETCore",
+                        "podSelector": {
+                            "app": "deployment-name"
+                        },
+                        "localRoot": "${workspaceFolder}",
+                        "remoteRoot": "Path to the Remote Directory Containing the Program"
+                    },
+                    {
+                        "name": "PowerShell Launch Script",
+                        "type": "PowerShell",
+                        "request": "launch",
+                        "script": "enter path or command to execute e.g.: ${workspaceFolder}/src/foo.ps1 or Invoke-Pester",
+                        "cwd": "${cwd}"
+                    },
+                    {
+                        "name": "Remote Debug IoT Edge Module (.NET Core)",
+                        "type": "cloudcode.kubernetes",
+                        "request": "attach",
+                        "processId": "${command:pickProcess}",
+                        "pipeArgs": [
+                            "exec",
+                            "-i",
+                            "<container_name>",
+                            "sh",
+                            "-c"
+                        ]
+                    },
+                    {
+                        "name": "Launch IoT Edge Module (.NET Core)",
+                        "type": "coreclr",
+                        "request": "launch",
+                        "program": "${workspaceRoot}/bin/Debug/<target-framework>/<project-name.dll>",
+                        "args": [],
+                        "cwd": "${workspaceRoot}",
+                        "internalConsoleOptions": "openOnSessionStart",
+                        "stopAtEntry": false,
+                        "console": "internalConsole",
+                        "env": {
+                            "EdgeHubConnectionString": "${config:azure-iot-edge.EdgeHubConnectionString}",
+                            "EdgeModuleCACertificateFile": "${config:azure-iot-edge.EdgeModuleCACertificateFile}"
+                        }
+                    }
+                ]
+            }
         },
         {
             "name": "Launch IoT Edge Module (.NET Core)",
-            "type": "coreclr",
+            "type": "node",
             "request": "launch",
             "program": "${workspaceRoot}/bin/Debug/<target-framework>/<project-name.dll>",
             "args": [],
